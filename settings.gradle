@@ -1,1 +1,1 @@
-include ":lesson1", ":lesson2", ":lesson3:client", ":lesson3:server"
+include ":lesson1", ":lesson2", ":lesson3:client", ":lesson3:server", "lesson-db"

@@ -10,4 +10,7 @@ subprojects {
       mavenCentral()
   }
 
+  dependencies {
+    compile  'org.hsqldb:hsqldb:2.3.4'
+  }
 }
