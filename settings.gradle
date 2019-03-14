@@ -1,1 +1,1 @@
-include ":lesson3:client", ":lesson3:server", 'torpedo-1', ':torpedo-2:server', ':torpedo-2:client'
+include ":lesson3:client", ":lesson3:server", 'torpedo-1', ':torpedo-2:server', ':torpedo-2:client', ':lesson5-thread'
