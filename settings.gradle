@@ -1,1 +1,8 @@
-include ":lesson3:client", ":lesson3:server", 'torpedo-1', ':torpedo-2:server', ':torpedo-2:client', ':lesson5-thread'
+include ':lesson3:client',
+        ':lesson3:server',
+        'torpedo-1',
+        ':torpedo-2:server',
+        ':torpedo-2:client',
+        ':lesson5-thread',
+        ':lesson6-network-thread:client',
+        ':lesson6-network-thread:server'
