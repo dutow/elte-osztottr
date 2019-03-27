@@ -4,34 +4,57 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 public class Client {
-    static int id = 1;
+    private static int id = 1;
 
-    public static void main(String[] args) {
+    private static boolean running = true;
+
+    public static void main(String[] args) throws InterruptedException {
         String hostname =args[0];
         int serverPort = Integer.parseInt(args[1]);
 
         try (
-                Socket echoSocket = new Socket(hostname, serverPort);
+                Socket socket = new Socket(hostname, serverPort);
                 PrintWriter out =
-                        new PrintWriter(echoSocket.getOutputStream());
-                BufferedReader in =
-                        new BufferedReader(
-                                new InputStreamReader(echoSocket.getInputStream()));
+                        new PrintWriter(socket.getOutputStream());
+                Scanner in =
+                        new Scanner(
+                                new InputStreamReader(socket.getInputStream()));
                 BufferedReader stdIn =
                         new BufferedReader(
                                 new InputStreamReader(System.in))
         ) {
+            Thread tToServer = new Thread(() -> {
+                try {
+                    while (running) {
+                        String read =stdIn.readLine();
+                        if(read.equals("exit")) {
+                            running = false;
+                            break;
+                        }
+                        String msg = id + " " + read;
+                        out.println(msg);
+                        out.flush();
+                        System.out.println("Message sent: " + msg);
+                        id++;
+                    }
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+            });
 
-            while(true) {
-                String msg = id + " " + stdIn.readLine();
-                out.println(msg);
-                out.flush();
-                System.out.println("Message sent: " + msg);
-                System.out.println("Message received; " + in.readLine());
-                id++;
-            }
+            Thread tFromServer = new Thread(() -> {
+                while (running && in.hasNextLine()) {
+                    System.out.println("Message received; " + in.nextLine());                }
+            });
+
+            tFromServer.start();
+            tToServer.start();
+
+            tFromServer.join();
+            tToServer.join();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
