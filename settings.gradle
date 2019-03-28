@@ -5,4 +5,8 @@ include ':lesson3:client',
         ':torpedo-2:client',
         ':lesson5-thread',
         ':lesson6-network-thread:client',
-        ':lesson6-network-thread:server'
+        ':lesson6-network-thread:server',
+        ':torpedo-3a:server',
+        ':torpedo-3a:client',
+        ':torpedo-3b:server',
+        ':torpedo-3b:client'
