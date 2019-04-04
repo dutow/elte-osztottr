@@ -1,6 +1,6 @@
 include ':lesson3:client',
         ':lesson3:server',
-        'torpedo-1',
+        ':torpedo-1',
         ':torpedo-2:server',
         ':torpedo-2:client',
         ':lesson5-thread',
@@ -9,4 +9,5 @@ include ':lesson3:client',
         ':torpedo-3a:server',
         ':torpedo-3a:client',
         ':torpedo-3b:server',
-        ':torpedo-3b:client'
+        ':torpedo-3b:client',
+        ':objectstream'
