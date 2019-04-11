@@ -7,10 +7,13 @@ Probaljatok ki a peldat!
 * Inditsatok el kezzel a registry-t egy porton, es ugy
 * Bizzatok a registry kezeleset a szerverre, es ugy
 * Nezzetek meg a lehetseges hibauzeneteket, pl.:
-  * rossz port
+  * rossz port (hasznalhato az alapertelmezett port?)
   * rossz classpath a registrynek
   * hianyzo interface/exception specifikacio
   * kulonbozo kliens/szerver verzio
+  * nem exportalt objektum (parameter/visszateresi ertek/szolgaltatas)
+  * elirt nevu szolgaltatas
+  * nem szerializalhato parameter / visszateresi ertek
 
 Keszits egy szamologepet!
 ---
