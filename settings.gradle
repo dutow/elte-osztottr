@@ -11,4 +11,5 @@ include ':lesson3:client',
         ':torpedo-3b:server',
         ':torpedo-3b:client',
         ':objectstream',
-        ':lesson-rmi'
+        ':lesson-rmi',
+        ':lesson-db'
